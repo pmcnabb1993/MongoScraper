@@ -3,18 +3,80 @@
   <head>
     <meta charset="UTF-8">
     <title>Mango News Scraper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Custom fonts for this template -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="style.css">
 
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+    <style>
+      #welcome {
+        color: #FF8243;
+      }
+      #footer {
+        
+        color: #FF8243;
+      }
+      #logo {
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        display: block;
+      }
+      
+    </style>
   </head>
-  <body class="container">
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">Mango</a>
+          <img src="assets/img/leaf2.png" id="logo" class="circle responsive-img valign profile-image-login">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#team">Saved Articles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Update Articles</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Header -->
+      <header class="masthead" id="imageBig">
+          <div class="container">
+            <div class="intro-text">
+              <div class="intro-lead-in">Welcome!</div>
+              <div class="intro-heading text-uppercase" id="welcome">To The Mango News Scraper</div>
+              <a class="btn btn-success btn-xl text-uppercase js-scroll-trigger" href=""><span class="glyphicon glyphicon-credit-card"></span>Update Articles</a>
+            </div>
+          </div>
+        </header>
+
+    <!-- Articles -->
+    <section id="articles">
+    <div class="container">
     <h3 class="header">Welcome to The Mango News Scraper</h3>
     <div id="buttons">
       <button class="btn" id="weight-sort">Sort By Recent</button>
@@ -34,6 +96,43 @@
         <!-- Results from DB here -->
       </tbody>
     </table>
+  </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+      <div class="container" id="footer">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="copyright">Copyright &copy; Good Thyme 2018</span>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="container">
+            <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="app.js"></script>
+
   </body>
 </html>
