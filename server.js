@@ -34,7 +34,11 @@ var databaseUrl = "news";
 var collections = ["article"];
 
 // Use mongojs to hook the database to the db variable
-var db = mongojs(databaseUrl, collections);
+//var db = mongojs(databaseUrl, collections);
+
+// Handlebars
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // This makes sure that any errors are logged if mongodb runs into an issue
 db.on("error", function(error) {
@@ -56,6 +60,24 @@ db.on("error", function(error) {
           }
       });
   });
+
+// Catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// Error handler
+app.use(function(err, req, res, next) {
+  // Set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // Render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 // Set the app to listen on port 3000
 app.listen(3000, function() {
