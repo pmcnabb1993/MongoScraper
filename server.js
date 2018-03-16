@@ -1,20 +1,29 @@
 // Dependencies
-var express = require("express");
-var handlebars = require("express-handlebars");
-var bodyParser = require("body-parser");
-var mongojs = require("mongojs");
-var mongoose = require("mongoose");
+const express = require("express");
+const handlebars = require("express-handlebars");
+const bodyParser = require("body-parser");
+const mongojs = require("mongojs");
+const mongoose = require("mongoose");
 
 // Our scraping tools
-var cheerio = require("cheerio");
+const cheerio = require("cheerio");
 
 // Require all models
-var db = require("./models");
+const models = require("./models");
 
-var PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI =
+  process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines';
 
-// Initialize Express
-var app = express();
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
+const db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+const app = express();
 
 // Set up a static folder (public) for our web app
 app.use(express.static("public"));
