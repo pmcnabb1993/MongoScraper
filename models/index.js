@@ -1,7 +1,5 @@
-const mongoose = require('mongoose');
-
+//Exports
 module.exports = {
-  User: require('./user.js'),
-  Article: require('./headline.js'),
+  Headline: require('./Headline.js'),
   Comment: require('./comment.js')
 };
