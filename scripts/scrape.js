@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const request = require('request');
 var Headline = require(`../models/Headline.js`);
-const MEDIUM_URL = 'https://medium.com/topic/technology';
+
 
 //Function to scrape from the website medium
 const scrape = function() {
