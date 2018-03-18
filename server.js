@@ -4,61 +4,45 @@ const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongojs = require("mongojs");
 const mongoose = require("mongoose");
+const request = require("request");
+const logger = require('morgan');
+const app = express();
 
 // Our scraping tools
 const cheerio = require("cheerio");
 
 // Require all models
-const models = require("./models");
+const db = require("./models");
 
-const PORT = process.env.PORT || 3000;
-const MONGODB_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines';
-
+// If deployed, use the database. Otherwise use the local database.
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoScraper";
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
-
-const db = mongoose.connection;
+mongoose.connect(MONGODB_URI, {})
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-const app = express();
-
-// Set up a static folder (public) for our web app
-app.use(express.static("public"));
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
 var databaseUrl = "news";
 var collections = ["article"];
 
-// Use mongojs to hook the database to the db variable
-//var db = mongojs(databaseUrl, collections);
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+// Set up a static folder (public) for our web app
+app.use(express.static('public'));
 
 // Handlebars
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//Require api and html routes
+require("./routes/view-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
 // This makes sure that any errors are logged if mongodb runs into an issue
 db.on("error", function(error) {
     console.log("Database Error:", error);
-  });
-
-  //Routes
-  app.get("/", function(req, res){
-      res.send("Hello World");
-  });
-
-  app.get("/all", function(req, res){
-      db.animals.find({}, function(error, docs){
-          if (error) {
-              console.log(error);
-          }
-          else {
-              res.json(docs);
-          }
-      });
   });
 
 // Catch 404 and forward to error handler
@@ -80,7 +64,5 @@ app.use(function(err, req, res, next) {
 });
 
 // Set the app to listen on port 3000
-app.listen(3000, function() {
-    console.log("App running on port 3000!");
-  });
+app.listen(PORT, number => console.log(`App running on port ${PORT}!`));
   
