@@ -1,10 +1,11 @@
-const cheerio = require('cheerio');
-const request = require('request'); 
+var cheerio = require('cheerio');
+var request = require('request'); 
+
 var Headline = require('../models/Headline.js');
 
 const scrape = function() {
   // scrape data from news.ycombinator
-  request("https://news.ycombinator.com/", function (error, response, html) {
+  request("https://news.ycombinator.com/jobs", function (error, response, html) {
   
     var $ = cheerio.load(html);
 

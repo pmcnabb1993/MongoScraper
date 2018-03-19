@@ -166,8 +166,8 @@ img::-moz-selection {
 
 header.masthead {
   text-align: center;
-  color: white;
-  background-image: url("../public/assets/img/header-bg1.jpg");
+  color: rgb(193, 236, 192);
+  background-image: url("./img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -178,10 +178,12 @@ header.masthead {
   opacity: 0.9;
 }
 
-
+.form-inline{
+  padding-top: 10px
+}
 
 header.masthead .intro-text {
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 100px;
 }
 
@@ -203,8 +205,8 @@ header.masthead .intro-text .intro-heading {
 
 @media (min-width: 768px) {
   header.masthead .intro-text {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 50px;
@@ -697,12 +699,14 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #FF8243;
 }
 
+
+
 * {
   box-sizing: border-box;
   margin: 0 auto;
 }
 body {
-  background-image: url('../img/paper.png'); 
+   
   font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   color: #666666;
@@ -711,11 +715,12 @@ div {
   display: block;
 }
 .scrape {
-  background-color:  #2196f3;
+  background-color:  #6bbd34;
   color: white;
+  align-content: center;
 }
 .jumbotron {
-  background-image: url('../img/wsj.jpg'); 
+  background-image: url("./img/header-bg.jpg");
   text-align: center;
   position: relative;
   width: 100%;
@@ -797,4 +802,9 @@ a:hover {
 }
 .note-delete {
   float: right;
+}
+.lead {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF8243;
 }
