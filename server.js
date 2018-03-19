@@ -1,9 +1,13 @@
+//import required dependencies 
 var express = require('express');
-var bodyParser = require('body-parser');
 var request = require('request');
-var logger = require('morgan');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var logger = require('morgan');
 var cheerio = require('cheerio');
+
+
+//import models for database
 var db = require ('./models')
 var PORT = 8080;
 var app = express();
@@ -12,6 +16,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
+//Import handlebars
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -25,4 +30,4 @@ mongoose.connect(MONGODB_URI, {})
 require("./routes/api-routes.js")(app);
 require("./routes/view-routes.js")(app);
 
-app.listen(PORT, number => console.log(`Mongo Scraper running on ${PORT}`));
+app.listen(PORT, number => console.log(`The Mango News Scraper is running on ${PORT}`));
