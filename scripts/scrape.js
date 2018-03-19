@@ -1,9 +1,7 @@
 const cheerio = require('cheerio');
-const request = require('request');
-var Headline = require(`../models/Headline.js`);
+const request = require('request'); 
+var Headline = require('../models/Headline.js');
 
-
-//Function to scrape from the website medium
 const scrape = function() {
   // scrape data from news.ycombinator
   request("https://news.ycombinator.com/", function (error, response, html) {

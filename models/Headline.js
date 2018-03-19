@@ -1,36 +1,30 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const Headline = new Schema({
+var HeadlineSchema = new Schema({
   title: {
     type: String,
-    trim: true,
-    unqique: true,
-    required: true
-  },
-  author: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  summary: {
-    type: String,
-    trim: true,
-    required: true
+    required: true,
+    unique: true
   },
   link: {
     type: String,
-    trim: true,
-    unique: true,
     required: true
   },
-  created_at: {
-    type: Date
+  source: {
+    type: String,
   },
-  comment: {
+  saved: {
+    type: Boolean,
+    default: false
+  },
+  note: {
     type: Schema.Types.ObjectId,
-    ref: 'Comment'
+    ref: "Note"
   }
-});
+},
+{ timestamps: true });
 
-module.exports = mongoose.model('headline', Headline);
+var Headline = mongoose.model('Headline', HeadlineSchema);
+
+module.exports = Headline
