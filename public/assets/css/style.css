@@ -183,8 +183,8 @@ header.masthead {
 }
 
 header.masthead .intro-text {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 header.masthead .intro-text .intro-lead-in {
@@ -205,8 +205,8 @@ header.masthead .intro-text .intro-heading {
 
 @media (min-width: 768px) {
   header.masthead .intro-text {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 30px;
+    padding-bottom: 75px;
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 50px;
@@ -309,7 +309,7 @@ div {
 .panel {
   box-shadow: 3px 3px 20px lightslategrey;
   margin-bottom: 23px;
-  background-color: #ffffff;
+  background-color: rgb(255, 223, 206);
 }
 .panel-heading {
   position: relative;
@@ -318,11 +318,12 @@ div {
 }
 .panel.panel-default .panel-heading h3 {
   color: white;
-  font-size: 34px;
-  margin-top: 23px;
+  font-size: 20px;
+  margin-top: 20px;
   margin-bottom: 11.5px;
   text-decoration: none;
   background-color: transparent;
+  
 }
 .article-link {
   color: white;
@@ -341,13 +342,13 @@ a {
   background-color: transparent;
 }
 a:hover {
-  color: #FF8243;
+  color: #6bbd34;
 }
 .panel.panel-default .panel-heading .btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: normal;
 }
 .btn-info {
@@ -472,5 +473,8 @@ a:hover {
 .example-1 {
   position: relative;
   overflow-y: scroll;
-  height: 700px; }
-          
+  height: 500px; }
+
+#mango {
+  margin-top: 75px;
+}
