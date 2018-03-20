@@ -25,7 +25,7 @@ app.set("view engine", "handlebars");
 // If deployed, use the deployed database. Otherwise use the local mongoScraper database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoScraper";
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {})
+mongoose.connect(MONGODB_URI, {useMongoClient: true})
 
 require("./routes/api-routes.js")(app);
 require("./routes/view-routes.js")(app);
