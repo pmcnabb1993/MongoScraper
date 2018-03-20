@@ -1,3 +1,4 @@
+//This is where we scrape news from ycombinator.com
 var cheerio = require('cheerio');
 var request = require('request'); 
 
@@ -5,7 +6,7 @@ var Headline = require('../models/Headline.js');
 
 const scrape = function() {
   // scrape data from news.ycombinator
-  request("https://news.ycombinator.com/jobs", function (error, response, html) {
+  request("https://news.ycombinator.com/", function (error, response, html) {
   
     var $ = cheerio.load(html);
 
@@ -35,8 +36,6 @@ const scrape = function() {
           upsert: true
         },
 
-        // there appear to be extraneous tds on this page 
-        // that are not legit titles for articles
         (err, inserted) => { /* err ? console.log(err) : console.log(inserted) */ });
       };
     });
