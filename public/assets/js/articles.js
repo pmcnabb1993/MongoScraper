@@ -41,7 +41,7 @@ $(document).ready(function(){
           <h3><a class="article-link" target="_blank" href="${headline.link}">${headline.title}</a><a class="btn btn-success save" id="${headline._id}">SAVE ARTICLE</a></h3>
         </div>
         <div class="panel-body">
-          ${headline.source}
+          Source: ${headline.source}
         </div>
       </div>`
     ))
