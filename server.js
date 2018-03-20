@@ -9,7 +9,7 @@ var cheerio = require('cheerio');
 
 //import models for database
 var db = require ('./models')
-var PORT = 8080;
+var PORT = 3000;
 var app = express();
 
 app.use(logger('dev'));
